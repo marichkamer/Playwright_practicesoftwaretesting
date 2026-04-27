@@ -16,14 +16,14 @@ test.describe('Purchase Flow', () => {
     await checkoutPage.mainLink();
   });
 
-    test('Logged-in user completes a purchase', async({page}) => {
-      const loginPage = new LoginPage(page);
-      const checkoutPage = new CheckoutPage(page);
-      const homePage = new HomePage(page);
-      await loginPage.login(EMAIL, PASSWORD);
-      const product = productName.pliers;
-      await homePage.addProductToCart(product);
-      await checkoutPage.checkout(paymentMethod.cash, addressData);
-      await expect(checkoutPage.paymentSuccessMsg).toBeVisible();
-    });
+  test('Logged-in user completes a purchase', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+    const checkoutPage = new CheckoutPage(page);
+    const homePage = new HomePage(page);
+    await loginPage.login(EMAIL, PASSWORD);
+    const product = productName.pliers;
+    await homePage.addProductToCart(product);
+    await checkoutPage.checkout(paymentMethod.cash, addressData);
+    await expect(checkoutPage.paymentSuccessMsg).toBeVisible();
+  });
 });

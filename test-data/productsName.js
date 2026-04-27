@@ -1,5 +1,5 @@
 export const productName = {
-  sledgehammer: "Sledgehammer",
-  pliers: "Pliers",
-  combpliers: "Combination Pliers"
+  sledgehammer: 'Sledgehammer',
+  pliers: 'Pliers',
+  combpliers: 'Combination Pliers',
 };

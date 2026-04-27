@@ -4,5 +4,5 @@ export const languages = {
   en: { expectedText: 'Sustainability' },
   nl: { expectedText: 'Duurzaamheid' },
   tr: { expectedText: 'Sürdürülebilirlik' },
-  fr: { expectedText: 'Durabilité' }
+  fr: { expectedText: 'Durabilité' },
 };

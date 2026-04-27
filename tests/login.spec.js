@@ -1,4 +1,4 @@
-import { test, expect} from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/login.page';
 import 'dotenv/config';
 
@@ -11,7 +11,7 @@ test.describe('Login Tests', () => {
     await loginPage.mainLink();
   });
 
-  test('Log in with valid data', async({page}) =>{
+  test('Log in with valid data', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(EMAIL, PASSWORD);
     await expect(loginPage.myAccount).toBeVisible();
