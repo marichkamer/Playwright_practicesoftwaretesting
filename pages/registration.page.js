@@ -17,6 +17,7 @@ export class RegistrationPage extends BasePage {
     this.emailRegField = page.locator('[data-test="email"]');
     this.passwordRegField = page.locator('[data-test="password"]');
     this.regSubmitBtn = page.locator('[data-test="register-submit"]');
+    this.houseNumberField = page.locator('[data-test="house_number"]');
   }
 
   async register(user) {
@@ -25,15 +26,13 @@ export class RegistrationPage extends BasePage {
     await this.firstNameField.fill(user.firstName);
     await this.lastNameField.fill(user.lastName);
     await this.dateBirthField.fill(user.dateBirth);
-    await this.streetField.fill(user.street);
-    await this.postalCodeField.fill(user.postalCode);
-    await this.cityField.fill(user.city);
-    await this.stateField.fill(user.state);
     await this.countryFiled.selectOption(user.country);
+    await this.postalCodeField.fill(user.postalCode);
+    await this.houseNumberField.fill(user.houseNumber);
     await this.phoneField.fill(user.phone);
     await this.emailRegField.fill(user.email);
     await this.passwordRegField.fill(user.password);
-    await this.regSubmitBtn.click();
     await this.page.waitForLoadState('networkidle');
+    await this.regSubmitBtn.click();
   }
 }
