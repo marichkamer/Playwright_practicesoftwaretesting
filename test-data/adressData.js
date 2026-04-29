@@ -1,5 +1,5 @@
 export const addressData = {
   country: 'Ukraine',
-  postalCode: "43892",
-  houseNumber: "12"
+  postalCode: '43892',
+  houseNumber: '12',
 };

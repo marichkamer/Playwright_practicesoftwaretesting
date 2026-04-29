@@ -6,13 +6,13 @@ const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
 
 export const test = base.extend({
-    authPage: async ({ page }, use) => {
-        const loginPage = new LoginPage(page);
-        await loginPage.mainLink();
-        await loginPage.login(EMAIL, PASSWORD);
-        await loginPage.myAccount.waitFor({ state: 'visible' });
-        await use(page);
-    }
+  authPage: async ({ page }, use) => {
+    const loginPage = new LoginPage(page);
+    await loginPage.mainLink();
+    await loginPage.login(EMAIL, PASSWORD);
+    await loginPage.myAccount.waitFor({ state: 'visible' });
+    await use(page);
+  },
 });
 
-export{expect} from '@playwright/test';
+export { expect } from '@playwright/test';

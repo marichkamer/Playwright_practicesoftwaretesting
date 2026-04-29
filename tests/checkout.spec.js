@@ -5,7 +5,6 @@ import { paymentMethod } from '../test-data/paymentMethods.js';
 import { productName } from '../test-data/productsName.js';
 import { addressData } from '../test-data/adressData.js';
 
-
 test.describe('Purchase Flow', () => {
   test.beforeEach(async ({ page }) => {
     const checkoutPage = new CheckoutPage(page);
