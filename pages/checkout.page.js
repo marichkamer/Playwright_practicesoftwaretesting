@@ -16,12 +16,13 @@ export class CheckoutPage extends BasePage {
     this.countryInput = page.locator('[data-test="country"]');
     this.stateInput = page.locator('[data-test="state"]');
     this.postalCodeInput = page.locator('[data-test="postal_code"]');
+    this.houseNumberInput = page.locator('[data-test="house_number"]');
   }
 
   async checkout(method, addressData) {
     await this.proceedtoCheckoutStep1.click();
     await this.proceedtoCheckoutStep2.click();
-    await this.fillAddressIfNeeded(addressData);
+    await this.fillAddress(addressData);
     await this.proceedtoCheckoutStep3.click();
     await this.selectPaymentMethod(method);
     await this.confirmBtn.click();
@@ -31,25 +32,9 @@ export class CheckoutPage extends BasePage {
     await this.paymentMethod.selectOption(method);
   }
 
-  async fillAddressIfNeeded(data) {
-    if ((await this.streetInput.inputValue()) === '') {
-      await this.streetInput.fill(data.street);
-    }
-
-    if ((await this.cityInput.inputValue()) === '') {
-      await this.cityInput.fill(data.city);
-    }
-
-    if ((await this.stateInput.inputValue()) === '') {
-      await this.stateInput.fill(data.state);
-    }
-
-    if ((await this.countryInput.inputValue()) === '') {
-      await this.countryInput.fill(data.country);
-    }
-
-    if ((await this.postalCodeInput.inputValue()) === '') {
-      await this.postalCodeInput.fill(data.postalCode);
-    }
+  async fillAddress(data) {
+    await this.countryInput.selectOption(data.country);
+    await this.postalCodeInput.fill(data.postalCode);
+    await this.houseNumberInput.fill(data.houseNumber);
   }
 }
