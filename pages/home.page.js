@@ -9,10 +9,14 @@ export class HomePage extends BasePage {
     this.homeBtn = page.locator('[data-test="nav-home"]');
     this.mainCartBtn = page.locator('[data-test="nav-cart"]');
     this.productNames = page.locator('[data-test="product-name"]');
-    this.basketIcon = page.locator('[data-test="nav-cart"]');
     this.cartQuantity = page.locator('[data-test="cart-quantity"]');
     this.removeFromCartBtn = page.locator('.btn.btn-danger');
-    this.emptyCartMessage = page.getByText('The cart is empty. Nothing to')
+    this.emptyCartMessage = page.getByText('The cart is empty. Nothing to');
+    this.favoritesBtn = page.locator('[data-test="add-to-favorites"]');
+    this.signedInUserName = page.locator('[data-test="nav-menu"]');
+    this.myFavorites = page.locator('[data-test="nav-my-favorites"]');
+
+
   }
 
   
@@ -55,5 +59,17 @@ export class HomePage extends BasePage {
 
   async removeFromCart() {
     await this.removeFromCartBtn.click();
+  }
+
+  async addtoFavorites() {
+    await this.favoritesBtn.click();
+  }
+
+  async clickOnyourNameAccount() {
+    await this.signedInUserName.click();
+  }
+
+  async openMyFavorites() {
+    await this.myFavorites.click();
   }
 }
