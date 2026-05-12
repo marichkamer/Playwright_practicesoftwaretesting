@@ -8,9 +8,18 @@ export class HomePage extends BasePage {
     this.addtoCartBtn = page.locator('[data-test="add-to-cart"]');
     this.homeBtn = page.locator('[data-test="nav-home"]');
     this.mainCartBtn = page.locator('[data-test="nav-cart"]');
-    this.productNames = this.page.locator('[data-test="product-name"]');
+    this.productNames = page.locator('[data-test="product-name"]');
+    this.cartQuantity = page.locator('[data-test="cart-quantity"]');
+    this.removeFromCartBtn = page.locator('.btn.btn-danger');
+    this.emptyCartMessage = page.getByText('The cart is empty. Nothing to');
+    this.favoritesBtn = page.locator('[data-test="add-to-favorites"]');
+    this.signedInUserName = page.locator('[data-test="nav-menu"]');
+    this.myFavorites = page.locator('[data-test="nav-my-favorites"]');
+
+
   }
 
+  
   async goHome() {
     await this.homeBtn.click();
   }
@@ -46,5 +55,21 @@ export class HomePage extends BasePage {
     await this.searchBtn.click();
     await this.searchBtn.fill(productName);
     await this.searchBtnSubmit.click();
+  }
+
+  async removeFromCart() {
+    await this.removeFromCartBtn.click();
+  }
+
+  async addtoFavorites() {
+    await this.favoritesBtn.click();
+  }
+
+  async clickOnyourNameAccount() {
+    await this.signedInUserName.click();
+  }
+
+  async openMyFavorites() {
+    await this.myFavorites.click();
   }
 }
