@@ -11,7 +11,7 @@ test.describe('Purchase Flow', () => {
     await checkoutPage.mainLink();
   });
 
-  test('[CHECKOUT-01] Logged-in user completes a purchase', async ({ authPage }) => {
+  test('003-[CHECKOUT-01] Logged-in user completes a purchase', async ({ authPage }) => {
     const page = authPage;
     const checkoutPage = new CheckoutPage(page);
     const homePage = new HomePage(page);
