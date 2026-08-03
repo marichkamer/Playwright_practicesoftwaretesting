@@ -13,7 +13,6 @@ test.describe('Home Page Tests', () => {
     const homePage = new HomePage(page);
     const lang = 'es';
     await homePage.changeLanguage(lang);
-    await page.reload();
     await expect(homePage.contactButton).toHaveText(languages[lang].expectedText);
 
   });
