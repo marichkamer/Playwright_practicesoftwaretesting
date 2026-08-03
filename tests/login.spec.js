@@ -1,4 +1,4 @@
-import { test, expect } from '../fixture.js';
+import { test, expect } from '../fixtures/fixture.js';
 import { LoginPage } from '../pages/login.page.js';
 
 test.describe('Login Tests', () => {
