@@ -1,4 +1,4 @@
-import {test, expect} from '@playwright/test';
+import {test, expect} from '../fixtures/fixture.js';
 import { HomePage } from '../pages/home.page.js';
 import { languages } from '../test-data/languages.js';
 import { productName } from '../test-data/productsName.js';
