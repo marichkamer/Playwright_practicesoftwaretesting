@@ -1,4 +1,4 @@
-import { test as base } from '@playwright/test';
+import { test as base, expect } from '@playwright/test';
 import { LoginPage } from '../pages/login.page';
 import 'dotenv/config';
 
@@ -10,9 +10,10 @@ export const test = base.extend({
     const loginPage = new LoginPage(page);
     await loginPage.mainLink();
     await loginPage.login(EMAIL, PASSWORD);
-    await loginPage.myAccount.waitFor({ state: 'visible' });
+    await expect(loginPage.myAccount).toBeVisible();
+
     await use(page);
   },
 });
 
-export { expect } from '@playwright/test';
+export { expect };
