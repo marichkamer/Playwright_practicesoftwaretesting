@@ -8,9 +8,18 @@ on:
       - develop
   pull_request:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -36,9 +45,21 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
 
-      - name: Upload Allure Results
+      - name: Generate Allure Report
         if: always()
-        uses: actions/upload-artifact@v4
+        run: npx allure generate allure-results --clean -o allure-report
+
+      - name: Setup GitHub Pages
+        if: always()
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        if: always()
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: allure-results
-          path: allure-results
+          path: allure-report
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        id: deployment
+        uses: actions/deploy-pages@v4
