@@ -1,6 +1,6 @@
 export const languages = {
   de: { expectedText: 'Nachhaltigkeit' },
-  es: { expectedText: 'Contacto' },
+  es: { expectedText: 'Sostenibilidad' },
   en: { expectedText: 'Sustainability' },
   nl: { expectedText: 'Duurzaamheid' },
   tr: { expectedText: 'Sürdürülebilirlik' },

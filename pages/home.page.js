@@ -16,7 +16,7 @@ export class HomePage extends BasePage {
     this.signedInUserName = page.locator('[data-test="nav-menu"]');
     this.myFavorites = page.locator('[data-test="nav-my-favorites"]');
     this.contactButton = page.locator('[data-test="nav-contact"]');
-
+    this.sustainabilityHeading = (text) => page.getByRole('heading', { name: text });
 
   }
 

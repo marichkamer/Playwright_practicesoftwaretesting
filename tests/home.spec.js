@@ -15,7 +15,7 @@ test.describe('Home Page Tests', () => {
     await homePage.changeLanguage(lang);
     console.log(await page.locator('html').getAttribute('lang'));
     console.log(await page.locator('body').innerText());
-    await expect(homePage.contactButton).toHaveText(languages[lang].expectedText);
+    await expect(homePage.sustainabilityHeading(languages[lang].expectedText)).toBeVisible();
   });
 
   test('005-[HOME-02] Search for an exact product name @public', async ({ page }) => {
