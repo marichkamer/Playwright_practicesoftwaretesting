@@ -8,7 +8,7 @@ test.describe('Registration Tests', () => {
     const registrationPage = new RegistrationPage(page);
     await registrationPage.mainLink();
   });
-  test('User registration', async ({ page }) => {
+  test('[REGISTRATION-01] User registration', async ({ page }) => {
     const registrationPage = new RegistrationPage(page);
     const loginPage = new LoginPage(page);
     await registrationPage.register(registrationDataUser1);
