@@ -47,20 +47,10 @@ export class HomePage extends BasePage {
     await this.openCart();
   }
 
-  // async changeLanguage(langCode) {
-  //   await this.languageBtn.click();
-  //   await this.page.locator(`[data-test="lang-${langCode}"]`).click();
-  // }
   async changeLanguage(langCode) {
-  await this.languageBtn.click();
-
-  const language = this.page.locator(`[data-test="lang-${langCode}"]`);
-
-  await language.waitFor({ state: 'visible' });
-  await language.click();
-
-  console.log('Selected language:', langCode);
-}
+    await this.languageBtn.click();
+    await this.page.locator(`[data-test="lang-${langCode}"]`).click();
+  }
 
   async searchExactProduct(productName) {
     await this.searchBtn.click();

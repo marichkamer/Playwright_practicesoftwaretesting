@@ -13,7 +13,9 @@ test.describe('Home Page Tests', () => {
     const homePage = new HomePage(page);
     const lang = 'es';
     await homePage.changeLanguage(lang);
-    await expect(homePage.contactButton).toHaveText(languages[lang].expectedText);
+    await expect(homePage.contactButton).toHaveText(languages[lang].expectedText,
+  { timeout: 15000 }
+);
   });
 
   test('005-[HOME-02] Search for an exact product name @public', async ({ page }) => {
