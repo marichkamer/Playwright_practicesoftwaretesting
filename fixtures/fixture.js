@@ -10,6 +10,8 @@ export const test = base.extend({
     const loginPage = new LoginPage(page);
     await loginPage.mainLink();
     await loginPage.login(EMAIL, PASSWORD);
+    console.log('URL after login:', page.url());
+    await expect(this.page).toHaveURL('https://practicesoftwaretesting.com/account');
     await expect(loginPage.myAccount).toBeVisible();
 
     await use(page);
