@@ -5,5 +5,6 @@ export class BasePage {
 
   async mainLink() {
     await this.page.goto('/');
+    console.log('URL:', this.page.url());
   }
 }
