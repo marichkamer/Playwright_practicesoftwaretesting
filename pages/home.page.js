@@ -15,6 +15,7 @@ export class HomePage extends BasePage {
     this.favoritesBtn = page.locator('[data-test="add-to-favorites"]');
     this.signedInUserName = page.locator('[data-test="nav-menu"]');
     this.myFavorites = page.locator('[data-test="nav-my-favorites"]');
+    this.contactButton = page.locator('[data-test="nav-contact"]');
 
 
   }
