@@ -10,7 +10,7 @@ test.describe('Home Page Tests', () => {
     await homePage.mainLink();
   });
 
-  test('004-[HOME-01] Possibility of language change @public', async () => {
+  test('004-[HOME-01] Possibility of language change @auth', async () => {
     const lang = 'es';
     await homePage.changeLanguage(lang);
     await expect(homePage.sustainabilityHeading(languages[lang].expectedText)).toBeVisible();
