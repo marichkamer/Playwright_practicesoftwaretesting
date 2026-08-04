@@ -4,22 +4,19 @@ import { languages } from '../test-data/languages.js';
 import { productName } from '../test-data/productsName.js';
 
 test.describe('Home Page Tests', () => {
+  let homePage;
   test.beforeEach(async ({ page }) => {
-    const homePage = new HomePage(page);
+    homePage = new HomePage(page);
     await homePage.mainLink();
   });
 
-  test('004-[HOME-01] Possibility of language change @public', async ({ page }) => {
-    const homePage = new HomePage(page);
+  test('004-[HOME-01] Possibility of language change @public', async () => {
     const lang = 'es';
     await homePage.changeLanguage(lang);
-    console.log(await page.locator('html').getAttribute('lang'));
-    console.log(await page.locator('body').innerText());
     await expect(homePage.sustainabilityHeading(languages[lang].expectedText)).toBeVisible();
   });
 
   test('005-[HOME-02] Search for an exact product name @public', async ({ page }) => {
-    const homePage = new HomePage(page);
     const searchData = productName.sledgehammer;
     await homePage.searchExactProduct(searchData);
     await expect(page.locator('body')).toContainText(searchData);
