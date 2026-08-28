@@ -1,7 +1,7 @@
 import { chromium } from 'playwright-extra';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 import 'dotenv/config';
-import { LoginPage } from './pages/login.page';
+import { LoginPage } from './pages/login.page.js';
 
 chromium.use(StealthPlugin());
 
