@@ -1,16 +1,11 @@
-import { test, expect } from '@playwright/test';
-import { RegistrationPage } from '../pages/registration.page';
-import { LoginPage } from '../pages/login.page';
+import { test, expect } from "../fixtures/login.fixture.js"
 import { registrationDataUser1 } from '../test-data/registration';
 
 test.describe('Registration Tests', () => {
-  test.beforeEach(async ({ page }) => {
-    const registrationPage = new RegistrationPage(page);
+  test.beforeEach(async ({ registrationPage }) => {
     await registrationPage.mainLink();
   });
-  test('008-[REGISTRATION-01] User registration @auth', async ({ page }) => {
-    const registrationPage = new RegistrationPage(page);
-    const loginPage = new LoginPage(page);
+  test('008-[REGISTRATION-01] User registration @auth', async ({ loginPage,registrationPage }) => {
     await registrationPage.register(registrationDataUser1);
     await expect(loginPage.forgotPassword).toBeVisible();
   });

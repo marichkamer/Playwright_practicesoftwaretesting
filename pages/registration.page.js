@@ -32,7 +32,7 @@ export class RegistrationPage extends BasePage {
     await this.phoneField.fill(user.phone);
     await this.emailRegField.fill(user.email);
     await this.passwordRegField.fill(user.password);
-    await this.page.waitForLoadState('networkidle');
+    await this.passwordRegField.press('Tab');
     await this.regSubmitBtn.click();
   }
 }
