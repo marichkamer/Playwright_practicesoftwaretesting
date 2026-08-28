@@ -19,8 +19,7 @@ test.describe('Home Page Tests', () => {
     await expect(page.locator('body')).toContainText(searchData);
   });
 
-  test('006-[HOME-03] Add a product to favorites @auth', async ({authPage, page,homePage}) => {
-    await authPage;
+  test('006-[HOME-03] Add a product to favorites @auth', async ({ page,homePage}) => {
     const product = productName.pliers;
     await homePage.openProduct(product);
     await homePage.addtoFavorites();
