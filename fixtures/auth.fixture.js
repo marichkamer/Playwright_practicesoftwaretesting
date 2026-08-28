@@ -11,7 +11,8 @@ const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
 
 export const test = pageTest.extend({
-  authenticationPage: async (_fixtures, use) => {
+  // eslint-disable-next-line no-empty-pattern
+    authenticationPage: async ({}, use) => {
     const browser = await chromium.launch({
       headless: true,
     });
