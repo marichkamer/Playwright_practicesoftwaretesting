@@ -20,6 +20,7 @@ test.describe('Home Page Tests', () => {
   });
 
   test('006-[HOME-03] Add a product to favorites @auth', async ({authPage, page,homePage}) => {
+    await authPage;
     const product = productName.pliers;
     await homePage.openProduct(product);
     await homePage.addtoFavorites();
