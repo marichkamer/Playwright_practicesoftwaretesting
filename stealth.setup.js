@@ -13,7 +13,9 @@ async function main() {
     headless: true,
   });
 
-  const context = await browser.newContext();
+  const context = await browser.newContext({
+    baseURL: 'https://practicesoftwaretesting.com/',
+    });
   const page = await context.newPage();
   const loginPage = new LoginPage(page);
   await loginPage.mainLink();
