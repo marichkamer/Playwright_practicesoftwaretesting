@@ -1,6 +1,7 @@
 import { chromium } from 'playwright-extra';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 import 'dotenv/config';
+
 import { LoginPage } from './pages/login.page.js';
 
 chromium.use(StealthPlugin());
@@ -15,16 +16,22 @@ async function main() {
 
   const context = await browser.newContext({
     baseURL: 'https://practicesoftwaretesting.com/',
-    });
+  });
+
   const page = await context.newPage();
+
   const loginPage = new LoginPage(page);
+
   await loginPage.mainLink();
   await loginPage.login(EMAIL, PASSWORD);
 
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(3000);
 
   console.log('URL:', page.url());
-  console.log('Title:', await page.title());
+
+  await context.storageState({
+    path: 'playwright/.auth/user.json',
+  });
 
   await browser.close();
 }

@@ -28,10 +28,22 @@ export default defineConfig({
   },
 
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+  {
+    name: 'public',
+    grep: /@public/,
+    use: {
+      ...devices['Desktop Chrome'],
     },
+  },
+
+  {
+    name: 'auth',
+    grep: /@auth/,
+    use: {
+      ...devices['Desktop Chrome'],
+      storageState: 'playwright/.auth/user.json',
+    },
+  },
 
     // {
     //   name: 'firefox',

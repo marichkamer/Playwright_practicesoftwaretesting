@@ -46,7 +46,7 @@ jobs:
         run: npm run lint
 
       - name: Run Playwright tests
-        run: npx playwright test --grep "@public"
+        run: npx playwright test
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
