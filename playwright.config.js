@@ -41,7 +41,6 @@ export default defineConfig({
     grep: /@auth/,
     use: {
       ...devices['Desktop Chrome'],
-      storageState: 'playwright/.auth/user.json',
     },
   },
 
