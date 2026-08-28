@@ -38,6 +38,9 @@ jobs:
 
       - name: Test stealth
         run: node stealth.setup.js
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+            PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Run ESLint
         run: npm run lint
