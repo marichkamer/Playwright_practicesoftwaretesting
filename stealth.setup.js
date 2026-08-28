@@ -5,7 +5,7 @@ chromium.use(StealthPlugin());
 
 async function main() {
   const browser = await chromium.launch({
-    headless: false,
+    headless: true,
   });
 
   const context = await browser.newContext();
@@ -19,6 +19,11 @@ async function main() {
 
   console.log('Title:', await page.title());
   console.log('URL:', page.url());
+
+  await page.screenshot({
+    path: 'stealth-result.png',
+    fullPage: true,
+  });
 
   await browser.close();
 }
